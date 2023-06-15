@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="java.js"></script>
+<script>
+  const status = localStorage.getItem('Loginstatus');
+if (status != 'true'){
+
+}else{
+  location.href = 'Main.html';
+}
+</script>
+<style>
+  
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(recipe/bg.jpg);
+  background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+  
+}
+.ttl{
+  text-align: center;
+	font-size: 45px;
+	font-family: 'Lucida Sans',Geneva;
+	color: wheat;
+  opacity: 90%;
+	text-shadow: black 2px 2px;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  background-color: wheat;
+  border-radius: 10px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 20px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: burlywood;
+  color: black;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 15px;
+  border-radius: 20px;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+
+  text-align: center;
+}
+
+.boxtitle{
+  text-align: center;
+}
+
+.error {
+  color: red;
+  display: block;
+  text-align: left;
+}
+
+.success-message {
+  background-color: green;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+}
+
+.error-message {
+  background-color: red;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+}
+
+</style>
+
+</head>
+<body>
+<h1 class = ttl>Nor's Kan anan</h1>
+
+  <div class="container">
+    <form id="login-form" class="form">
+    <h1 class="boxtitle">Login</h1>
+    <p class="boxtitle">Please fill in this form to login.</p>
+    <center><span id="spanm"></span></center>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email">
+    <small id="emailError"></small>
+
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw">
+    <small id="passwordError"></small>
+    <hr>
+ 
+    <button type="submit" class="registerbtn" name="login" id="login">Login</button>
+  
+    <p class="boxtitle">Don't have an Account? <a href="register.html">Register Here</a>.</p>
+  </form>
+  </div>
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nor's Kan anan</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="java.js"></script>
+    <style>
+      .error {
+  color: red;
+  display: block;
+  text-align: left;
+}
+
+.success-message {
+  background-color: green;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+}
+
+.error-message {
+  background-color: red;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+}
+    </style>
+  </head>
+  <body>
+
+    <h1>Nor's Kan anan</h1>
+      <nav>
+        <ul>
+          <a href="Main.html"><li>Home</li></a>
+          <a href="About.html"><li>About</li></a><span class="vl"></span>
+          &nbsp;&nbsp;
+          <button id="log" class="l_button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+          <span id="username" class="page" style="display: none;">&nbsp;</span>
+          <button id="logout" class="l_button" onclick="logout()" style="width:auto;display: none;">Logout</button>
+          
+          <label>
+        </ul>
+      </nav>
+
+      <div id="carticon" class="modal">
+  
+        <form class="modal-content animate">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('carticon').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <h4 style="font-size: 20px;">CART</h4>
+          </div>
+      
+          <div class="container">
+            <div class="cart-container">
+              <table>
+                <thead>
+                  <tr>
+                  <th><strong>Quantity</strong></th>
+                  <th><strong>Product</strong></th>
+                  <th><strong>Price</strong></th>
+                </tr>
+                </thead>
+                <tbody id="carttable">
+                </tbody>
+              </table>
+              <hr>
+              <table id="carttotals">
+                <tr>
+                  <td><strong>Items</strong></td>
+                  <td><strong>Total</strong></td>
+                </tr>
+                <tr>
+                  <td>x <span id="itemsquantity">0</span></td>
+                 
+                  <td>$<span id="carttotal">0</span></td>
+                </tr></table>
+    
+                
+              <div class="cart-buttons">  
+                <button id="emptycart">Empty Cart</button>
+                <button id="checkout">Checkout</button>
+              </div>
+            </div>
+          </div>
+    
+        </form>
+      </div>
+      
+      <!-- FOOD LISTING -->
+      <section class = "items">
+      
+          <div class="item" id="pinakbet1" style="display: none;">
+            <div class="sudan">
+              <div id="prod">
+                <h4  style="color: aliceblue;" class="price" id="price">P35</h4>
+                  <h4 style="color: aliceblue;"><br>Quantity
+                <button class="sub" onclick = "sub()">-</button>
+                <span id="q">&nbsp;1&nbsp;</span>
+                <button class="add" onclick = "add()">+</button></h4>
+                <p><b>Shipping To: <input id="int"></input></p>
+                <p>Shipping Fee: P35.00</p>
+                <hr class="dashed"><br>
+                <p>Total: P<span id="total">0</span></b></p><br>
+                <button class="item_button addtocart" id="btn1.1" style="background-color: #4caf4c;">Add to Cart</button>
+              </div>
+            </div>
+
+            <h4 id="productname" style="text-shadow: wheat;">Pinakbet</h4>
+            <button class="item_button" id="btn1" onclick="cancel()" style="background-color: #F44336;">Cancel</button>
+          </div>
+          <div class="item" id="pinakbet">
+            <img src="recipe/pinakbet.jpg">
+            <h4 style="text-shadow: 2px 2px 5px black;">Pinakbet</h4>
+            <button class="item_button" id="btn1.1" onclick="pinakbet()">Order</button>
+          </div>
+          
+          <div class="item" id="pancit1" style="display: none;">
+            <div class="sudan">
+              <div id="prod">
+                <h4  style="color: aliceblue;" class="price" id="price">P45</h4>
+                  <h4 style="color: aliceblue;"><br>Quantity
+                <button class="sub" onclick = "sub()">-</button>
+                <span id="q1">&nbsp;1&nbsp;</span>
+                <button class="add" onclick = "add()">+</button></h4>
+                <p><b>Shipping To: <input id="int2"></input></p>
+                <p>Shipping Fee: P35.00</p>
+                <hr class="dashed"><br>
+                <p>Total: P<span id="total1">0</span></b></p><br>
+                <button class="item_button addtocart" id="btn1.1" style="background-color: #4caf4c;">Add to Cart</button>
+              </div>
+            </div>
+
+            <h4 id="productname" style="text-shadow: wheat;">Pancit</h4>
+            <button class="item_button" id="btn2" onclick="cancel1()" style="background-color: #F44336;">Cancel</button>
+          </div>
+
+          <div class="item" id="pancit">
+            <img src="recipe/pancit.jpg">
+            <h4 style="text-shadow: 2px 2px 5px black;">Pancit</h4>
+            <button class="item_button" id="btn2.1" onclick="pancit()">Order</button>
+          </div>
+
+          <div class="item" id="sitaw1" style="display: none;">
+            <div class="sudan">
+              <div id="prod">
+                <h4  style="color: aliceblue;" class="price" id="price">P40</h4>
+                  <h4 style="color: aliceblue;"><br>Quantity
+                <button class="sub" onclick = "sub()">-</button>
+                <span id="q2">&nbsp;1&nbsp;</span>
+                <button class="add" onclick = "add()">+</button></h4>
+                <p><b>Shipping To: <input id="int2"></input></p>
+                <p>Shipping Fee: P35.00</p>
+                <hr class="dashed"><br>
+                <p>Total: P<span id="total2">0</span></b></p><br>
+                <button class="item_button addtocart" id="btn1.1" style="background-color: #4caf4c;">Add to Cart</button>
+              </div>
+            </div>
+
+            <h4 id="productname" style="text-shadow: wheat;">Minudong Sitaw</h4>
+            <button class="item_button" id="btn3" onclick="cancel2()"style="background-color: #F44336;">Cancel</button>
+          </div>
+
+          <div class="item" id="sitaw">
+              <img src="recipe/sitaw.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Minudong Sitaw</h4>
+              <button class="item_button" id="btn3.1" onclick="sitaw()">Order</button>
+          </div>
+
+          <div class="item">
+              <img src="recipe/bihon.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Bihon</h4>
+              <button class="item_button" id="btn4" onclick="alert('Sorry, Out of Stock!')">Order</button>
+          </div>
+
+          <div class="item">
+              <img src="recipe/chapsui.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Chapsui</h4>
+              <button class="item_button" id="btn5" onclick="alert('Sorry, Out of Stock!')">Order</button>
+          </div>
+
+          <div class="item">
+              <img src="recipe/dinuguan.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Dinuguan</h4>
+              <button class="item_button" id="btn6" onclick="alert('Sorry, Out of Stock!')">Order</button>
+          </div>
+
+          <div class="item">
+              <img src="recipe/maranay.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Maranay</h4>
+              <button class="item_button" id="btn7" onclick="alert('Sorry, Out of Stock!')">Order</button>
+          </div>
+
+          <div class="item">
+              <img src="recipe/langka.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Ginataang Langka</h4>
+              <button class="item_button" id="btn8" onclick="alert('Sorry, Out of Stock!')">Order</button>
+          </div>
+
+          <div class="item">
+              <img src="recipe/lumpia.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Lumpia</h4>
+              <button class="item_button" id="btn9" onclick="alert('Sorry, Out of Stock!')">Order</button>
+          </div>
+
+          <div class="item">
+              <img src="recipe/minudo.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Minudo</h4>
+              <button class="item_button" id="btn10" onclick="alert('Sorry, Out of Stock!')">Order</button>
+          </div>
+
+          <div class="item">
+              <img src="recipe/maranay.jpg">
+              <h4 style="text-shadow: 2px 2px 5px black;">Maranay</h4>
+              <button class="item_button" id="btn11" onclick="alert('Sorry, Out of Stock!')">Order</button>
+          </div>
+
+          <div class="item">
+            <img src="recipe/bbq.jpg">
+            <h4 style="text-shadow: 2px 2px 5px white;">BBQ</h4>
+            <button class="item_button" id="btn12" onclick="alert('Sorry, Out of Stock!')">Order</button>
+        </div>
+      </section>
+
+      <!-- LOG IN -->
+      <div id="id01" class="modal">
+  
+        <div class="modal-content animate">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <h4 style="font-size: 20px;">Login</h4>
+          </div>
+          <form id="login-form" class="form">
+          <span id="spanm"></span>
+          <div class="container">
+            <label for="uname"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" id="email" name="uname">
+            <small id="emailError"></small>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw">
+            <small id="passwordError"></small>
+
+            <button class="l_button" type="submit" onclick="login()">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+        </form>
+      
+          <div class="container" style="background-color:#f1f1f1">
+            <span class="psw">Don't have an Account? <a href="register.html">Register Here</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="icon">
+        <img src="cart.png" class="cartpic" onclick="document.getElementById('carticon').style.display = 'block'">
+        <span class="popup" id="num">2</span>
+      </div>
+      <!--FOOTER-->
+      <footer>
+        <div>This website is for project purpose only all image use 
+          reserve for te actual owner. </div>
+      </footer>
+
+  </body>
+  <script>
+    let getStatus = localStorage.getItem('Loginstatus');
+    if (getStatus != 'true'){
+    document.getElementById('log').style.display='inline-block';
+    document.getElementById('username').style.display='none';
+    document.getElementById('logout').style.display='none';
+    }else{
+  
+    const getFirstName = localStorage.getItem('firstname');
+    document.getElementById('log').style.display='none';
+    document.getElementById('username').innerHTML = "Welcome " + getFirstName;
+    document.getElementById('id01').style.display='none';
+    document.getElementById('log').style.display='none';
+    document.getElementById('logout').style.display='inline-block';
+    document.getElementById('username').style.display='inline-block';
+    }
+
+
+
+    //ADD TO CART
+
+/* get cart total from session on load */
+updateCartTotal();
+
+/* button event listeners */
+document.getElementById("emptycart").addEventListener("click", emptyCart);
+var btns = document.getElementsByClassName('addtocart');
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function() {addToCart(this);});
+}
+
+/* ADD TO CART functions */
+
+function addToCart(elem) {
+    //init
+    var sibs = [];
+    var getprice;
+    var getproductName;
+    var cart = [];
+     var stringCart;
+    //cycles siblings for product info near the add button
+    while(elem = elem.previousSibling) {
+        if (elem.nodeType === 3) continue; // text node
+        if(elem.className == "price"){
+            getprice = elem.innerText;
+        }
+        if (elem.className == "productname") {
+            getproductName = elem.innerText;
+        }
+        sibs.push(elem);
+    }
+    //create product object
+    var product = {
+        productname : getproductName,
+        price : getprice
+    };
+
+    //convert product data to JSON for storage
+    var stringProduct = JSON.stringify(product);
+    /*send product data to session storage */
+    
+    if(!sessionStorage.getItem('cart')){
+        //append product JSON object to cart array
+        cart.push(stringProduct);
+        //cart to JSON
+        stringCart = JSON.stringify(cart);
+        //create session storage cart item
+        sessionStorage.setItem('cart', stringCart);
+        addedToCart(getproductName);
+        updateCartTotal();
+    }
+    else {
+        //get existing cart data from storage and convert back into array
+       cart = JSON.parse(sessionStorage.getItem('cart'));
+        //append new product JSON object
+        cart.push(stringProduct);
+        //cart back to JSON
+        stringCart = JSON.stringify(cart);
+        //overwrite cart data in sessionstorage 
+        sessionStorage.setItem('cart', stringCart);
+        addedToCart(getproductName);
+        updateCartTotal();
+    }
+}
+/* Calculate Cart Total */
+function updateCartTotal(){
+    //init
+    var total = 0;
+    var price = 0;
+    var items = 0;
+    var productname = "";
+    var address = "";
+    var carttable = "";
+    if(sessionStorage.getItem('cart')) {
+        //get cart data & parse to array
+        var cart = JSON.parse(sessionStorage.getItem('cart'));
+        //get no of items in cart 
+        items = cart.length;
+        //loop over cart array
+        for (var i = 0; i < items; i++){
+            //convert each JSON product in array back into object
+            var x = JSON.parse(cart[i]);
+            //get property value of price
+            price = parseFloat(x.price.split('$')[1]);
+            productname = x.productname;
+            //add price to total
+            carttable += "<tr><td>" + productname + "</td><td>$" + price.toFixed(2) + "</td></tr>";
+            total += price;
+        }
+        
+    }
+    //update total on website HTML
+    document.getElementById("carttotal").innerHTML = total.toFixed(2);
+    //insert saved products to cart table
+    document.getElementById("carttable").innerHTML = carttable;
+    //update items in cart on website HTML
+    document.getElementById("itemsquantity").innerHTML = items;
+}
+//user feedback on successful add
+function addedToCart(pname) {
+  var message = pname + " was added to the cart";
+  var alerts = document.getElementById("alerts");
+  alerts.innerHTML = message;
+  if(!alerts.classList.contains("message")){
+     alerts.classList.add("message");
+  }
+}
+/* User Manually empty cart */
+function emptyCart() {
+    //remove cart session storage object & refresh cart totals
+    if(sessionStorage.getItem('cart')){
+        sessionStorage.removeItem('cart');
+        updateCartTotal();
+      //clear message and remove class style
+      var alerts = document.getElementById("alerts");
+      alerts.innerHTML = "";
+      if(alerts.classList.contains("message")){
+          alerts.classList.remove("message");
+      }
+    }
+}
+  </script>
+  <script src="script.js"></script>
+  </html>
